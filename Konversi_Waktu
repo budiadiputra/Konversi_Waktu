@@ -1,34 +1,30 @@
-def time_converter(jh):
-    from math import floor
+def time_converter(s):
     
-    t = floor(jh / 3600)
-    b = floor((jh % 3600) / 60)
-    m = floor(( jh % 3600)-(b*60))
-    
-    if 0 <= jh <= 359999:
-        if 0 <= t <= 9:
-            tahun = '0'+ str(t)
-        if t > 9:
-            tahun = t
+    HH = int(s / 3600)
+    MM = int((s % 3600) / 60)
+    SS = int(s % 3600) - (MM * 60)
 
-        if 0 <= b <= 9:
-            bulan = '0'+ str(b)
-        if b > 9:
-            bulan = b
+    if 0 <= s <= 359999:
+        if 0 <= HH <= 9:
+            HH = '0'+ str(HH)
 
-        if 0 <= m <= 9:
-            minggu = '0'+ str(m)
-        if m > 9:
-            minggu = m
-    
-            h = (f'{tahun}:{bulan}:{minggu}')
+        if 0 <= MM <= 9:
+            MM = '0'+ str(MM)
+
+        if 0 <= SS <= 9:
+            SS = '0'+ str(SS)
+
+
+        h = (f"{HH}:{MM}:{SS}")
+
     else:
         h = ("Invalid Input")
 
     return h
 
-try:
-    masukan = int(input('Masukkan detik : '))
-    print(time_converter(masukan))
-except:
+try :
+    x = int(input("Input A Second : "))
+    print(time_converter(x))
+
+except :
     print("Invalid Input")
